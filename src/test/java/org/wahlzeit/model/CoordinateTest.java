@@ -9,8 +9,8 @@ public class CoordinateTest {
 
     @Test
     public void testgetDistance(){
-        Coordinate src = new Coordinate(52.517, 13.40);
-        Coordinate dest = new Coordinate(35.70, 139.767);
+        Coordinate dest = new Coordinate(52.517, 13.40);
+        Coordinate src = new Coordinate(35.70, 139.767);
 
         double desiredlength = 8918950.0;
 

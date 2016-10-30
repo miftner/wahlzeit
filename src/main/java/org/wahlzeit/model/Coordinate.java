@@ -26,7 +26,7 @@ public class Coordinate {
 
 
     //
-    // AB calculated by ABdegree times
+    // Distance from this Coordinate to the sourceCoordinates returned in Meters
     public double getDistance(Coordinate sourceCoordinates){
 
         //Define variables o = omega, l = lambda
@@ -38,7 +38,7 @@ public class Coordinate {
         oSrc = Math.toRadians(sourceCoordinates.getLatitude());
         lSrc = Math.toRadians(sourceCoordinates.getLongitude());
 
-        double deltaOmega = Math.abs(oDest-oSrc);
+        //double deltaOmega = Math.abs(oDest-oSrc);
         double deltaLambda = Math.abs(lDest-lSrc);
 
         double up = Math.sqrt(
@@ -49,9 +49,9 @@ public class Coordinate {
         //Calculate Degree of Source (A) to Destination (B)
         double centralangle = Math.atan(up / down);
 
-        double ab = centralangle * earthRadiusInMeters;
+        double distanceInMeters = centralangle * earthRadiusInMeters;
 
-        return ab;
+        return distanceInMeters;
 
     }
 
