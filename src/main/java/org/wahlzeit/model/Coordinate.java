@@ -24,26 +24,32 @@ public class Coordinate {
         return this.longitude;
     }
 
+
+    //
     // AB calculated by ABdegree times
     public double getDistance(Coordinate sourceCoordinates){
 
-        //Define variables
+        //Define variables o = omega, l = lambda
         double oDest, lDest, oSrc, lSrc;
 
-        oDest = this.getLatitude();
-        lDest = this.getLongitude();
+        oDest = Math.toRadians(this.getLatitude());
+        lDest = Math.toRadians(this.getLongitude());
 
-        oSrc = sourceCoordinates.getLatitude();
-        lSrc = sourceCoordinates.getLongitude();
+        oSrc = Math.toRadians(sourceCoordinates.getLatitude());
+        lSrc = Math.toRadians(sourceCoordinates.getLongitude());
+
+        double deltaOmega = Math.abs(oDest-oSrc);
+        double deltaLambda = Math.abs(lDest-lSrc);
+
+        double up = Math.sqrt(
+                                ( Math.pow(Math.cos(oSrc)* Math.sin(deltaLambda), 2) )  +  (  Math.pow(Math.cos(oDest)*Math.sin(oSrc)-Math.sin(oDest)*Math.cos(oSrc)*Math.cos(deltaLambda),2)  )
+                            );
+        double down = Math.sin(oDest) * Math.sin(oSrc) + Math.cos(oDest) * Math.cos(oSrc)* Math.cos(deltaLambda);
 
         //Calculate Degree of Source (A) to Destination (B)
-        double absin = Math.sin(oSrc) * Math.sin(oDest);
-        double abcos = Math.cos(oSrc) * Math.cos(oDest) * Math.cos(lDest - lSrc);
-        double abDegree = Math.acos(absin + abcos );
-        double abRad = Math.toRadians(abDegree);
+        double centralangle = Math.atan(up / down);
 
-        //Calculate the Distance in Meters
-        double ab = abRad * earthRadiusInMeters;
+        double ab = centralangle * earthRadiusInMeters;
 
         return ab;
 

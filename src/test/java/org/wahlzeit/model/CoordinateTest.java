@@ -12,11 +12,9 @@ public class CoordinateTest {
         Coordinate src = new Coordinate(52.517, 13.40);
         Coordinate dest = new Coordinate(35.70, 139.767);
 
-        double desiredlength = 8918000.0;
+        double desiredlength = 8918950.0;
 
         double result = Math.round(dest.getDistance(src));
-
-        System.out.println(result);
         assertEquals(desiredlength, result);
     }
 
