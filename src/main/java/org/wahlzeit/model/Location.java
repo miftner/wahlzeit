@@ -6,9 +6,22 @@ public class Location {
 
 
     //Constuctor
-    public Location(){
-        this.coordinates = new Coordinate(2.0, 3.0);
+    public Location(Coordinate coordinate){
+        this.coordinates = coordinate;
     }
 
+
+    public Coordinate getCoordinates(){
+        return this.coordinates;
+    }
+
+    public boolean setCoordinates(Coordinate newCoordinates){
+        if(newCoordinates.getLongitude() == this.getCoordinates().getLongitude() && newCoordinates.getLatitude() == this.getCoordinates().getLatitude()){
+            return false;
+        }else{
+            this.coordinates = newCoordinates;
+            return true;
+        }
+    }
 
 }
