@@ -15,12 +15,11 @@ public class Location {
         return this.coordinates;
     }
 
-    public boolean setCoordinates(Coordinate newCoordinates){
+    public void setCoordinates(Coordinate newCoordinates){
         if(newCoordinates.getLongitude() == this.getCoordinates().getLongitude() && newCoordinates.getLatitude() == this.getCoordinates().getLatitude()){
-            return false;
+           throw new IllegalArgumentException("Coordinates don't differ");
         }else{
             this.coordinates = newCoordinates;
-            return true;
         }
     }
 

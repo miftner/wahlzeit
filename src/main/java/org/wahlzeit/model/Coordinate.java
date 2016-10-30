@@ -9,7 +9,7 @@ public class Coordinate {
     private double latitude = 0.0;
     private double longitude = 0.0;
 
-    public Location coordinate;
+    //public Location coordinate;
 
     public Coordinate(double lat, double lon){
         this.latitude = lat;
@@ -56,3 +56,4 @@ public class Coordinate {
     }
 
 }
+

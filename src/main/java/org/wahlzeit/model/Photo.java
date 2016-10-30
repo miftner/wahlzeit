@@ -31,7 +31,7 @@ import org.wahlzeit.services.DataObject;
 import org.wahlzeit.services.EmailAddress;
 import org.wahlzeit.services.Language;
 import org.wahlzeit.services.ObjectManager;
-import org.wahlzeit.model.Location;
+//import org.wahlzeit.model.Location;
 
 import java.util.Map;
 
@@ -129,7 +129,7 @@ public class Photo extends DataObject {
     /**
      * Location of the Picture
      */
-    private Location location;
+    protected Location location;
 
     /**
 	 *
