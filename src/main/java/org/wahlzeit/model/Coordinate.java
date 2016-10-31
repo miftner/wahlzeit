@@ -5,13 +5,13 @@ public class Coordinate {
     private static final double earthRadiusInMeters = 6371000.0;
 
 
-    /*
+    /**
      * displayed as degree
      */
     private double latitude = 0.0;
     private double longitude = 0.0;
 
-    /*
+    /**
      * public Location coordinate;
      */
 
@@ -29,12 +29,12 @@ public class Coordinate {
     }
 
 
-    /*
+    /**
      * Distance from this Coordinate to the sourceCoordinates returned in Meters
      */
     public double getDistance(Coordinate sourceCoordinates){
 
-        /*
+        /**
          * Define variables o = omega, l = lambda
          */
         double oDest, lDest, oSrc, lSrc;
@@ -45,7 +45,7 @@ public class Coordinate {
         oSrc = Math.toRadians(sourceCoordinates.getLatitude());
         lSrc = Math.toRadians(sourceCoordinates.getLongitude());
 
-        /*
+        /**
          * double deltaOmega = Math.abs(oDest-oSrc);
          */
         double deltaLambda = Math.abs(lDest-lSrc);
@@ -55,7 +55,7 @@ public class Coordinate {
                             );
         double down = Math.sin(oDest) * Math.sin(oSrc) + Math.cos(oDest) * Math.cos(oSrc)* Math.cos(deltaLambda);
 
-        /*
+        /**
          * Calculate Degree of Source (A) to Destination (B)
          */
         double centralangle = Math.atan(up / down);
