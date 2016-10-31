@@ -2,14 +2,18 @@ package org.wahlzeit.model;
 
 public class Coordinate {
 
-    private final double earthRadiusInMeters = 6371000.0;
+    private static final double earthRadiusInMeters = 6371000.0;
 
 
-    //displayed as degree
+    /*
+     * displayed as degree
+     */
     private double latitude = 0.0;
     private double longitude = 0.0;
 
-    //public Location coordinate;
+    /*
+     * public Location coordinate;
+     */
 
     public Coordinate(double lat, double lon){
         this.latitude = lat;
@@ -25,11 +29,14 @@ public class Coordinate {
     }
 
 
-    //
-    // Distance from this Coordinate to the sourceCoordinates returned in Meters
+    /*
+     * Distance from this Coordinate to the sourceCoordinates returned in Meters
+     */
     public double getDistance(Coordinate sourceCoordinates){
 
-        //Define variables o = omega, l = lambda
+        /*
+         * Define variables o = omega, l = lambda
+         */
         double oDest, lDest, oSrc, lSrc;
 
         oDest = Math.toRadians(this.getLatitude());
@@ -38,7 +45,9 @@ public class Coordinate {
         oSrc = Math.toRadians(sourceCoordinates.getLatitude());
         lSrc = Math.toRadians(sourceCoordinates.getLongitude());
 
-        //double deltaOmega = Math.abs(oDest-oSrc);
+        /*
+         * double deltaOmega = Math.abs(oDest-oSrc);
+         */
         double deltaLambda = Math.abs(lDest-lSrc);
 
         double up = Math.sqrt(
@@ -46,7 +55,9 @@ public class Coordinate {
                             );
         double down = Math.sin(oDest) * Math.sin(oSrc) + Math.cos(oDest) * Math.cos(oSrc)* Math.cos(deltaLambda);
 
-        //Calculate Degree of Source (A) to Destination (B)
+        /*
+         * Calculate Degree of Source (A) to Destination (B)
+         */
         double centralangle = Math.atan(up / down);
 
         double distanceInMeters = centralangle * earthRadiusInMeters;
