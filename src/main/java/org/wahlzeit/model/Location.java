@@ -2,12 +2,17 @@ package org.wahlzeit.model;
 
 public class Location {
 
-    public Coordinate coordinates;
+    protected Coordinate coordinates;
 
 
     //Constuctor
     public Location(Coordinate coordinate){
-        this.coordinates = coordinate;
+        if(coordinate == null){
+            throw new IllegalArgumentException("Coordinate is null");
+        }else{
+            this.coordinates = coordinate;
+        }
+
     }
 
 
