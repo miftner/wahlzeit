@@ -55,6 +55,15 @@ public class ServiceMain extends ModelMain {
 	 */
 	protected boolean isInProduction = false;
 
+
+	public void setisInProduction(boolean productionstatus){
+		this.isInProduction = productionstatus;
+	}
+
+	public boolean getisInProduction(){
+		return this.isInProduction;
+	}
+
 	/**
 	 *
 	 */
