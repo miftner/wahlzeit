@@ -5,6 +5,9 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 
+/**
+ * Launch all TestSuite* Testcases
+ */
 @Suite.SuiteClasses(
         {
             TestSuiteHandlers.class,
