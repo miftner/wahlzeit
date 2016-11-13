@@ -48,7 +48,7 @@ public class PhotoManager extends ObjectManager {
 	/**
 	 *
 	 */
-	protected static final PhotoManager instance = new PhotoManager();
+	protected static PhotoManager instance = new PhotoManager();
 
 	private static final Logger log = Logger.getLogger(PhotoManager.class.getName());
 
@@ -70,9 +70,9 @@ public class PhotoManager extends ObjectManager {
 	}
 
 	/**
-	 *
+	 * removed final to be able to use LiquorPhotoManager
 	 */
-	public static final PhotoManager getInstance() {
+	public static  PhotoManager getInstance() {
 		return instance;
 	}
 
