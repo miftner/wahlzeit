@@ -1,13 +1,41 @@
 package org.wahlzeit.model.Coordinates;
 
 
+import java.util.HashMap;
+
+
 public class CartesianCoordinate extends AbstractCoordinate {
 
     private double x;
     private double y;
     private double z;
 
-    public CartesianCoordinate(double x, double y, double z) {
+    private static HashMap<CartesianCoordinate, CartesianCoordinate> cartMap = new HashMap<>();
+
+    /**
+     * Returns the specific object in the Hashmap and adds it if not found
+     * Has to be syncronized in order to avoid race-conditions with put/pull
+     * @param x
+     * @param y
+     * @param z
+     * @return
+     * returns an Cartesian Object
+     */
+    public static synchronized CartesianCoordinate getCartesianObject(double x, double y, double z){
+        CartesianCoordinate indexObject = new CartesianCoordinate(x,y,z);
+
+        if(cartMap.containsKey(indexObject) == false){
+            //Object not yet in the Hashmap
+            cartMap.put(indexObject, indexObject);
+
+        }else{
+            indexObject = cartMap.get(indexObject);
+        }
+
+        return indexObject;
+    }
+
+    private CartesianCoordinate(double x, double y, double z) {
 
         isValidDouble(x);
         isValidDouble(y);

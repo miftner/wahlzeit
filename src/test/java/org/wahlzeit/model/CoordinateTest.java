@@ -1,7 +1,6 @@
 package org.wahlzeit.model;
 
 import org.junit.Test;
-import org.wahlzeit.model.Coordinates.Coordinate;
 import org.wahlzeit.model.Coordinates.SphericCoordinate;
 
 import static junit.framework.TestCase.assertEquals;
@@ -11,13 +10,15 @@ public class CoordinateTest {
 
     @Test
     public void testgetDistance(){
-        SphericCoordinate dest = new SphericCoordinate(52.517, 13.40);
-        SphericCoordinate src = new SphericCoordinate(35.70, 139.767);
+        SphericCoordinate dest = SphericCoordinate.getSphericalObject(52.517, 13.40);
+        SphericCoordinate src = SphericCoordinate.getSphericalObject(35.70, 139.767);
 
-        double desiredlength = 8918950.0;
+        double desiredlength = 8208278.0;
 
         double result = Math.round(dest.getDistance(src));
+        System.out.println(desiredlength +" des is not result: " + result);
         assertEquals(desiredlength, result);
+
     }
 
 }

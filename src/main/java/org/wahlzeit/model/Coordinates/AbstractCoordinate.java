@@ -31,9 +31,9 @@ public abstract class AbstractCoordinate implements Coordinate {
             CartesianCoordinate coordinateThis = this.getCartesianCoordinateObject();
             CartesianCoordinate coordinateThat = coordinate.getCartesianCoordinateObject();
 
-            double distance = coordinateThis.getDistance(coordinateThat);
+            double distance = coordinateThis.doGetDistance(coordinateThat);
 
-            if(distance >= 0){
+            if(distance < 0){
                 throw new IllegalArgumentException("Calculated Distance has to be >= 0");
             }
 
