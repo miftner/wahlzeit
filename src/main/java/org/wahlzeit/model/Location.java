@@ -1,7 +1,12 @@
 package org.wahlzeit.model;
 
+import com.googlecode.objectify.annotation.Ignore;
+import org.wahlzeit.model.Coordinates.Coordinate;
+
 public class Location {
 
+
+    @Ignore
     protected Coordinate coordinates;
 
 
@@ -21,8 +26,8 @@ public class Location {
     }
 
     public void setCoordinates(Coordinate newCoordinates){
-        if(newCoordinates.getLongitude() == this.getCoordinates().getLongitude() && newCoordinates.getLatitude() == this.getCoordinates().getLatitude()){
-           throw new IllegalArgumentException("Coordinates don't differ");
+        if(newCoordinates == null) {
+            throw new IllegalArgumentException("newCoordinates has to be not null");
         }else{
             this.coordinates = newCoordinates;
         }
