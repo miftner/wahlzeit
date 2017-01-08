@@ -1,5 +1,15 @@
 package org.wahlzeit.model.Coordinates;
 
+import org.wahlzeit.utils.DesignPatternInterface;
+
+@DesignPatternInterface(
+        patternName = "Template",
+        participants = {
+                "AbstractClass", "ConcreteClass"
+        }
+
+)
+
 public abstract class AbstractCoordinate implements Coordinate {
 
 

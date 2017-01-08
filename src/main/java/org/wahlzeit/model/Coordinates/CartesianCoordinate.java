@@ -1,9 +1,14 @@
 package org.wahlzeit.model.Coordinates;
 
 
+import org.wahlzeit.utils.DesignPatternInterface;
+
 import java.util.HashMap;
 
-
+@DesignPatternInterface(
+        patternName = "Value Object",
+        participants = {"ValueObjects"}
+)
 public class CartesianCoordinate extends AbstractCoordinate {
 
     private double x;
